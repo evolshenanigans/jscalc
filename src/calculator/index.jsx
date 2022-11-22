@@ -164,7 +164,7 @@ const CalcAreaCentre = styled.div`
 
 let hold = [];
 
-function calc() {
+function Calc() {
   const [calcItems, setCalcItems] = useState("");
   const [answer, setAnswer] = useState(" ");
   const [hint, updateHint] = useState("");
@@ -203,29 +203,18 @@ function calc() {
     tempCalcItems(event.target.value);
   };
 
-  let escapeCharacters = (event) => {
-    hold = [];
-    tempCalcItems(event.target.value);
-  };
-
   const handleUpdateBasic = (event) => {
     tempCalcItems(event.target.value);
   };
 
   const handleExpression = () => {
     let answer2 = answer;
-    if(answer == ""){
+    if (answer === "") {
       answer2 = math.evaluate(calcItems);
     }
     setCalcItems(answer2);
     setAnswer("");
     hold = [answer2];
-  };
-
-  const handleUpdatePi = (event) => {
-    let newCalcItems = calcItems + event.target.value;
-    setCalcItems(newCalcItems);
-    setAnswer(math.evaluate("pi"));
   };
 
   const handleDeleteAll = () => {
@@ -234,17 +223,13 @@ function calc() {
     setAnswer("");
   };
 
-  let pushToStateDel = (event) => {
-    event.target.value = "";
-  };
-
   const handleDelete = (event) => {
     hold.pop();
     let popped = hold;
     popped = popped.join("");
     setCalcItems(popped);
-    console.log(popped.length)
-    if(calcItems.length >= 1){
+    console.log(popped.length);
+    if (calcItems.length >= 1) {
       if (popped.includes("log")) {
         popped = popped.replace("log", "log10");
       } else if (popped.includes("ln")) {
@@ -265,30 +250,30 @@ function calc() {
         popped = popped.replace("÷", "/");
       }
       setAnswer(math.evaluate(popped));
-      if(popped.length == 0){
-        setAnswer('')
+      if (popped.length === 0) {
+        setAnswer("");
       }
     }
   };
 
   const handleAdvanced = (event) => {
-    if (event.target.value == "sin(") {
+    if (event.target.value === "sin(") {
       updateHint(
         "to use the sin function, the following format should be used: sin(value)"
       );
-    } else if (event.target.value == "cos(") {
+    } else if (event.target.value === "cos(") {
       updateHint(
         "to use the cos function, the following format should be used: cos(value)"
       );
-    } else if (event.target.value == "tan(") {
+    } else if (event.target.value === "tan(") {
       updateHint(
         "to use the tan function, the following format should be used: tan(value)"
       );
-    } else if (event.target.value == "log(") {
+    } else if (event.target.value === "log(") {
       updateHint(
         "to use the log function, the following format should be used: log(value)"
       );
-    } else if (event.target.value == "ln(") {
+    } else if (event.target.value === "ln(") {
       updateHint(
         "to use the natural logarithm function, the following format should be used: ln(value)"
       );
@@ -298,16 +283,7 @@ function calc() {
     }, 6000);
     handleUpdate(event);
   };
-
-  let CalcKeypressExpression = (value) => {
-    setAnswer(math.evaluate(value));
-  };
-
-  let pushToState = (event) => {
-    setCalcItems(event.target.value);
-    CalcKeypressExpression(event.target.value);
-  };
-
+  
   return (
     <>
       <Body>
@@ -482,4 +458,4 @@ function calc() {
   );
 }
 
-export default calc;
+export default Calc;
