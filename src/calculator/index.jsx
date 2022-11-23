@@ -30,7 +30,7 @@ let Body = styled.div`
 let Main = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #e7eaff;
+  background-color: #f5f5f5;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -41,7 +41,7 @@ let Main = styled.div`
 let CalcArea = styled.div`
   height: 100%;
   width: 100%;
-  background-color: #fffbfe;
+  background-color: black;
   border-radius: 45px 45px 0px 0px;
   display: flex;
   flex-wrap: wrap;
@@ -51,15 +51,15 @@ let CalcArea = styled.div`
   .adv-btn {
     box-shadow: 0px 4px 14px rgba(204, 204, 204, 0.25);
     color: #6b7cfe;
-    background: #fff;
+    background: black;
   }
   .basic-btn {
-    background: #a3acff;
+    background: purple;
     color: #fff;
   }
   .express {
-    background: #a3acff;
-    color: #fff;
+    background: purple;
+    color: #black;
   }
   .btn-grow {
     width: 69%;
@@ -101,8 +101,8 @@ let Button = styled.button`
   padding: 0px;
   cursor: pointer;
   :hover {
-    background-color: #b481ff;
-    color: #fff;
+    background-color: #aaa4b3;
+    color: black;
     transition: 0.2s;
   }
 `;
@@ -115,7 +115,7 @@ let CalcInput = styled.input`
   margin-bottom: 0.7em;
   border: none;
   background: transparent;
-  color: #8d62cd;
+  color: black;
   :focus {
     outline: none;
   }
@@ -283,7 +283,7 @@ function Calc() {
     }, 6000);
     handleUpdate(event);
   };
-  
+
   return (
     <>
       <Body>
